@@ -1,0 +1,41 @@
+<?php
+    if(isset($_COOKIE["login"])){
+        if(!isset($_GET["id"])){
+            header("location:edit.php?err=1");
+        }
+        else{
+            $code=$_GET["id"];
+            $conn=mysqli_connect("localhost","root","","details");
+            if(empty($_POST["maritalstatus"])||empty($_POST["mothertongue"])||empty($_POST["complexion"])||empty($_POST["birthplace"])||empty($_POST["weight"])||empty($_POST["height"])||empty($_POST["bloodgroup"]) ||empty($_POST["diet"]) ||empty($_POST["profilecreated"]) ||empty($_POST["smoke"]) ||empty($_POST["drink"]) ||empty($_POST["zodiac"]) ||empty($_POST["education"]) ||empty($_POST["income"]) ||empty($_POST["fatheroccupation"]) ||empty($_POST["motheroccupation"])){
+                header("location:edit.php?empty=1");
+            }
+            else{
+                $maritalstatus=$_POST["maritalstatus"];
+                $mothertongue=$_POST["mothertongue"];
+                $complexion=$_POST["complexion"];
+                $birthplace=$_POST["birthplace"];
+                $weight=$_POST["weight"];
+                $height=$_POST["height"];
+                $bloodgroup=$_POST["bloodgroup"];
+                $diet=$_POST["diet"];
+                $profilecreated=$_POST["profilecreated"];
+                $smoke=$_POST["smoke"];
+                $drink=$_POST["drink"];
+                $zodiac=$_POST["zodiac"];
+                $education=$_POST["education"];
+                $income=$_POST["income"];
+                $fatheroccupation=$_POST["fatheroccupation"];
+                $motheroccupation=$_POST["motheroccupation"];
+                if(mysqli_query($conn,"update moredetails set maritalstatus='$maritalstatus', mothertongue='$mothertongue', complexion='$complexion', birthplace='$birthplace', weight='$weight', height='$height', bloodgroup='$bloodgroup', diet='$diet', profilecreated='$profilecreated', smoke='$smoke', drink='$drink', zodiac='$zodiac', education='$education', income='$income', fatheroccupation='$fatheroccupation', motheroccupation='$motheroccupation' where usercode='$code'")>0){
+                    header("location:edit.php?success=1");
+                }
+                else{
+                    header("location:edit.php?again=1");
+                }
+            }
+        }
+    }
+    else{
+        header("location:index.php");
+    }
+?>
