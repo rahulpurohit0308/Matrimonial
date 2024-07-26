@@ -62,7 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    </div>
    <div class="profile">
    	 <div class="col-md-8 profile_left" id="record">
-   	 	<h2>Profile Id : <?=$r["code"]?></h2>
+   	 	<h2><?=$r["fname"]?> <?=$r["lname"]?></h2>
    	 	<div class="col_3">
    	        <div class="col-sm-4 row_2">
 				<div class="flexslider">

@@ -74,8 +74,8 @@ $(window).load(function() {
    	        <div class="col-sm-4 row_2">
 				<div class="flexslider">
 					 <ul class="slides">
-						<li data-thumb="profile/<?=$r["code"]?>.jpg">
-							<img src="profile/<?=$r["code"]?>.jpg" />
+						<li data-thumb="profile/<?=$code?>.jpg">
+							<img src="profile/<?=$code?>.jpg" />
 						</li><br>
 					 </ul>
 				  </div>
